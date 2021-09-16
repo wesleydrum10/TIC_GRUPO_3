@@ -1,5 +1,5 @@
 ﻿# TIC_GRUPO_3
- ## Trabalho Interdisciplinar de Computação
+ ## Trabalho Interdisciplinar de Computação UNI-FACEF
  ### Grupo composto por: 
  ####  Cassiano Nakaoka - Ciências da Computação
  ####  Lucas Cintra - Engenharia de Software

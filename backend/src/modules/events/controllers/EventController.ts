@@ -4,7 +4,6 @@ import DeleteEventService from "../services/DeleteEventService";
 import ListEventService from "../services/ListEventService";
 import ShowEventService from "../services/ShowEventService";
 import UpdateEventService from "../services/UpdateEventService";
-import Event from "../typeorm/entities/Event";
    
 export default class EventController {
     

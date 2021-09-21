@@ -28,11 +28,6 @@ class UpdateNoticeService {
         if (!noticeExists){
             throw new AppError('Aviso não existe')
         }
-
-        let noticeName = await noticeRepository.findByName(titulo_aviso)
-        if (noticeName){
-            throw new AppError('Aviso já tem um nome deste')
-        }
     
         noticeExists.id_aviso = id_aviso
         noticeExists.cod_usuario = cod_usuario

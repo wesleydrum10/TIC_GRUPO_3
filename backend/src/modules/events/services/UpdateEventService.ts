@@ -21,11 +21,6 @@ class UpdateEventService {
         if (!eventExists){
             throw new AppError('Evento não existe')
         }
-
-        let eventName = await eventRepository.findByName(titulo_evento)
-        if (eventName){
-            throw new AppError('Evento já tem um nome deste')
-        }
         
         eventExists.cod_sala = cod_sala
         eventExists.cod_usuario = cod_usuario

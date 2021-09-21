@@ -1,36 +1,40 @@
 import {MigrationInterface, QueryRunner, Table} from "typeorm";
 
-export class CreateEvents1631998704554 implements MigrationInterface {
+export class CreateNotices1632191102844 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(new Table ({
-            name: 'events',
+            name: 'notices',
             columns: [
                 {
-                    name: 'id_evento',
+                    name: 'id_aviso',
                     type: 'uuid',
                     isPrimary: true,
                     generationStrategy: 'uuid',
                     default: 'uuid_generate_v4()'
                 },
                 {
-                    name: 'cod_sala',
+                    name: 'cod_usuario',
                     type: 'int',
                 },
                 {
-                    name: 'cod_usuario',
-                    type: 'int'
-                },
-                {
-                    name: 'data_evento',
-                    type: 'timestamp with time zone'
-                },
-                {
-                    name: 'descricao_evento',
+                    name: 'descricao_aviso',
                     type: 'varchar'
                 },
                 {
-                    name: 'titulo_evento',
+                    name: 'titulo_aviso',
+                    type: 'varchar'
+                },
+                {
+                    name: 'prazo_aviso',
+                    type: 'timestamp with time zone'
+                },
+                {
+                    name: 'data_aviso',
+                    type: 'timestamp with time zone'
+                },
+                {
+                    name: 'departamento_aviso',
                     type: 'varchar'
                 },
                 {
@@ -48,8 +52,6 @@ export class CreateEvents1631998704554 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-
-        await queryRunner.dropTable('events')
+        await queryRunner.dropTable('notices')
     }
 }
-

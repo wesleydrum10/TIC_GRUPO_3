@@ -14,7 +14,7 @@
 ##### Migrations
 ##### Criar migration
 ######  yarn typeorm migration:create -n Create<nomeTabela>
-***     ex: yarn typeorm migration:create -n CreateUsuarios.ts***
+***ex: yarn typeorm migration:create -n CreateUsuarios.ts***
 ##### Rodar migration 
 ######  yarn typeorm migration:run
 ##### Desfazer migration

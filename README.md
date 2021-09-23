@@ -7,21 +7,21 @@
  #####  Wesley Oliveira - Sistemas de Informação
 
 ##### Instalação
-###### npm install
-ou
-###### yarn install
+######  npm install
+***ou***
+######  yarn install
 
 ##### Migrations
-###### Criar migration
-###### yarn typeorm migration:create -n Create<nomeTabela>
-ex: yarn typeorm migration:create -n CreateUsuarios.ts
+##### Criar migration
+######  yarn typeorm migration:create -n Create<nomeTabela>
+***     ex: yarn typeorm migration:create -n CreateUsuarios.ts***
 ##### Rodar migration 
-###### yarn typeorm migration:run
+######  yarn typeorm migration:run
 ##### Desfazer migration
-###### yarn typeorm migration:revert
+######  yarn typeorm migration:revert
 
 ##### Rodar a aplicação
-###### npm run dev
-ou
-###### yarn dev
+######  npm run dev
+***ou***
+######  yarn dev
  

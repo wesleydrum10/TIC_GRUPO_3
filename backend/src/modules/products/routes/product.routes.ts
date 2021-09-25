@@ -1,12 +1,13 @@
 import {Router} from 'express';
 import ProductController from '../controllers/ProductController';
 import {celebrate, Joi, Segments} from 'celebrate';
+import isAuthenticated from '../../../shared/middleware/isAuthenticated';
 
 let productRouter = Router()
 
 let productController = new ProductController()
 
-productRouter.get('/', productController.index) 
+productRouter.get('/', isAuthenticated, productController.index) 
 productRouter.get('/:id_produto',
 celebrate({
     [Segments.PARAMS]: {
@@ -15,7 +16,7 @@ celebrate({
 }),
 productController.show)
 
-productRouter.post('/', 
+productRouter.post('/', isAuthenticated,
 celebrate({
     [Segments.BODY]: {
         cod_usuario: Joi.number().required(),
@@ -26,7 +27,7 @@ celebrate({
 }),
 productController.create)
 
-productRouter.delete('/:id_produto',
+productRouter.delete('/:id_produto', isAuthenticated,
 celebrate({
     [Segments.PARAMS]: {
         id_produto: Joi.string().uuid().required()
@@ -34,7 +35,7 @@ celebrate({
 }),
 productController.delete)
 
-productRouter.put('/:id_produto',
+productRouter.put('/:id_produto', isAuthenticated,
 celebrate({
     [Segments.PARAMS]: {
         id_produto: Joi.string().uuid().required()

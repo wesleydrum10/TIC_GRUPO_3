@@ -1,12 +1,13 @@
 import {Router} from 'express';
 import NoticeController from '../controllers/NoticeController';
 import {celebrate, Joi, Segments} from 'celebrate';
+import isAuthenticated from '../../../shared/middleware/isAuthenticated';
 
 let noticeRouter = Router()
 
 let noticeController = new NoticeController()
 
-noticeRouter.get('/', noticeController.index) 
+noticeRouter.get('/', isAuthenticated, noticeController.index) 
 noticeRouter.get('/:id_aviso',
 celebrate({
     [Segments.PARAMS]: {
@@ -15,7 +16,7 @@ celebrate({
 }),
 noticeController.show)
 
-noticeRouter.post('/', 
+noticeRouter.post('/', isAuthenticated,
 celebrate({
     [Segments.BODY]: {
         cod_usuario: Joi.number().required(),
@@ -28,7 +29,7 @@ celebrate({
 }),
 noticeController.create)
 
-noticeRouter.delete('/:id_aviso',
+noticeRouter.delete('/:id_aviso', isAuthenticated,
 celebrate({
     [Segments.PARAMS]: {
         id_aviso: Joi.string().uuid().required()
@@ -36,7 +37,7 @@ celebrate({
 }),
 noticeController.delete)
 
-noticeRouter.put('/:id_aviso',
+noticeRouter.put('/:id_aviso', isAuthenticated,
 celebrate({
     [Segments.PARAMS]: {
         id_aviso: Joi.string().uuid().required()

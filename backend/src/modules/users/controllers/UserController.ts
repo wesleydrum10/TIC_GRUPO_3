@@ -9,12 +9,13 @@ export default class UserController {
     
     public async create(request: Request, response: Response): Promise<Response> {
         
-        let {id_usuario, cod_usuario, nome_usuario, ocupacao_usuario, departamento_usuario} = request.body
+        let {id_usuario, cod_usuario, password, nome_usuario, ocupacao_usuario, departamento_usuario} = request.body
         let createUser = new CreateUserService();
 
         let newUser = await createUser.execute({
             id_usuario,
             cod_usuario,
+            password,
             nome_usuario, 
             ocupacao_usuario,
             departamento_usuario
@@ -50,9 +51,9 @@ export default class UserController {
     public async update(request: Request, response: Response): Promise<Response>{
 
         let {id_usuario} = request.params
-        let {cod_usuario, nome_usuario, ocupacao_usuario, departamento_usuario} = request.body
+        let {cod_usuario, password, nome_usuario, ocupacao_usuario, departamento_usuario} = request.body
         let updateService = new UpdateUserService() 
-        let user = await updateService.execute({id_usuario, cod_usuario, nome_usuario, ocupacao_usuario, departamento_usuario})
+        let user = await updateService.execute({id_usuario, cod_usuario, password, nome_usuario, ocupacao_usuario, departamento_usuario})
         
         return response.json(user)
     }

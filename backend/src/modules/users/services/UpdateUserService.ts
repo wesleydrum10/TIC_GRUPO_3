@@ -6,6 +6,7 @@ import UserRepository from "../typeorm/repositories/UserRepository";
 interface IRequest {
     id_usuario: string,
     cod_usuario: number,
+    password: string,
     nome_usuario: string,
     ocupacao_usuario: string,
     departamento_usuario: string
@@ -14,6 +15,7 @@ interface IRequest {
 class UpdateUserService {
     public async execute({id_usuario,
                           cod_usuario, 
+                          password,
                           nome_usuario, 
                           ocupacao_usuario, 
                           departamento_usuario}: IRequest): Promise<User>{
@@ -26,6 +28,7 @@ class UpdateUserService {
         }
 
         userExists.cod_usuario = cod_usuario
+        userExists.password = password
         userExists.nome_usuario = nome_usuario
         userExists.ocupacao_usuario = ocupacao_usuario
         userExists.departamento_usuario = departamento_usuario

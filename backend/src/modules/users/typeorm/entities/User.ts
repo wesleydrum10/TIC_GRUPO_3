@@ -16,6 +16,9 @@ class User {
 
     @Column()
     nome_usuario: string
+    
+    @Column()
+    password: string
 
     @Column()
     ocupacao_usuario: string

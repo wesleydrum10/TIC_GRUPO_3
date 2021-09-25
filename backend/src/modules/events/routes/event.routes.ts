@@ -1,12 +1,13 @@
 import {Router} from 'express';
 import EventController from '../controllers/EventController';
 import {celebrate, Joi, Segments} from 'celebrate';
+import isAuthenticated from '../../../shared/middleware/isAuthenticated'; 
 
 let eventRouter = Router()
 
 let eventController = new EventController()
 
-eventRouter.get('/', eventController.index) 
+eventRouter.get('/', isAuthenticated, eventController.index) 
 eventRouter.get('/:id_evento',
 celebrate({
     [Segments.PARAMS]: {
@@ -15,7 +16,7 @@ celebrate({
 }),
 eventController.show)
 
-eventRouter.post('/', 
+eventRouter.post('/', isAuthenticated,
 celebrate({
     [Segments.BODY]: {
         cod_sala: Joi.number().required(),
@@ -27,7 +28,7 @@ celebrate({
 }),
 eventController.create)
 
-eventRouter.delete('/:id_evento',
+eventRouter.delete('/:id_evento', isAuthenticated,
 celebrate({
     [Segments.PARAMS]: {
         id_evento: Joi.string().uuid().required()
@@ -35,7 +36,7 @@ celebrate({
 }),
 eventController.delete)
 
-eventRouter.put('/:id_evento',
+eventRouter.put('/:id_evento', isAuthenticated,
 celebrate({
     [Segments.PARAMS]: {
         id_evento: Joi.string().uuid().required()

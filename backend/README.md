@@ -6,22 +6,23 @@
  #####  Natan Torres - Ciências da Computação
  #####  Wesley Oliveira - Sistemas de Informação
 
-##### Instalação
-######  ```npm install```
-###### _ou_
-######  ```yarn install```
+### Back-end do projeto nodeJs com TypeScript
 
-##### Migrations
-##### Criar migration
-######  ```yarn typeorm migration:create -n Create<nomeTabela>```
+#### Instalação
+######  `npm install`
+###### _ou_
+######  `yarn install`
+
+#### Criar migration
+######  `yarn typeorm migration:create -n Create<nomeTabela>`
 ###### _ex: yarn typeorm migration:create -n CreateUsuarios.ts_
-##### Rodar migration 
-######  ```yarn typeorm migration:run```
-##### Desfazer migration
-######  ```yarn typeorm migration:revert```
+#### Rodar migration 
+######  `yarn typeorm migration:run`
+#### Desfazer migration
+######  `yarn typeorm migration:revert`
 
-##### Rodar a aplicação
-######  ```npm run dev```
+#### Rodar a aplicação
+######  `npm run dev`
 ###### _ou_
-######  ```yarn dev```
+######  `yarn dev`
  
